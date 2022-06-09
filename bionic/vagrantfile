@@ -1,0 +1,10 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/bionic64"
+    config.vm.network "private_network", ip: "192.168.50.4" #trava um ip que funciona somente em localhosts5
+    config.vm.network "forwarded_port", guest: 80, host: 8089 # passa a porta interna para jogar para a externa
+    config.vm.network "private_network", type: "dhcp"      #pega o primeiro ip que estiver disponivel 
+    config.vm.network "public_network", ip: "192.168.0.17" #ip externo passando o ip que a maquina ficara
+  end
+
+  #ssh-keygen -t rsa
+  # gera chave privada
